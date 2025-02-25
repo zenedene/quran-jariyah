@@ -39,9 +39,9 @@ const Page = () => {
     return <p className="text-center text-lg">Loading...</p>;
   }
 
-  if (!surahData.name) {
-    notFound();
-  }
+  // if (!surahData.name) {
+  //   notFound();
+  // }
 
   const { arab, translation, number, audio, tafsir } = surahData;
 
