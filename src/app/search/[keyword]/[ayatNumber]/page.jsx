@@ -52,23 +52,23 @@ const Page = () => {
         {/* Teks Arab dan Terjemahan */}
         <div className="mb-4">
           <div
-            className={`text-5xl font-bold mb-4 text-center ${lateef.className}`}
+            className={`sm:text-5xl text-3xl font-bold mb-4 text-center ${lateef.className}`}
             dir="rtl"
           >
             {arab}
           </div>
-          <p className="text-lg opacity-90 italic text-center">
+          <p className="sm:text-lg text-sm opacity-90 italic text-center">
             "{translation}"
           </p>
         </div>
 
         {/* Informasi Surat dan Ayat */}
         <div className="text-center mb-4 p-4 bg-white/10 rounded-xl shadow-lg inline-block">
-          <p className="text-2xl font-bold text-white">
+          <p className="sm:text-2xl text-xl font-bold text-white">
             {getSuratName(keyword)}
           </p>
           <div className="w-16 h-1 bg-white rounded-full my-2 mx-auto"></div>
-          <p className="text-lg font-medium text-white">
+          <p className="sm:text-lg text-sm font-medium text-white">
             Ayat ke-{number.inSurah}
           </p>
         </div>
