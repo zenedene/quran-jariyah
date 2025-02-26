@@ -25,18 +25,27 @@ const Page = async ({ params }) => {
 
   return (
     <div className="max-w-4xl mx-auto p-4 min-h-screen">
-      <div className="bg-color-accent text-white rounded-xl p-6 mb-8 shadow-lg">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-4">
-          <div>
-            <h1 className="text-4xl font-bold mb-2 font-amiri">
+      <div className="bg-color-accent text-white rounded-xl px-4 py-5 md:p-6 mb-6 md:mb-8 shadow-lg mx-2 md:mx-0">
+        <div className="flex flex-col justify-between md:flex-row md:items-start">
+          <div className="flex-1 mb-4 md:mb-0">
+            <h1 className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-amili leading-tight">
               {surahData.name}
             </h1>
-            <p className="text-xl opacity-90">{surahData.translation}</p>
+            <p className="text-base md:text-xl opacity-90 leading-relaxed">
+              {surahData.translation}
+            </p>
           </div>
-          <div className="mt-4 md:mt-0 text-right">
-            <p className="text-lg">Surah ke-{surahData.number}</p>
-            <p className="text-lg">{surahData.numberOfAyahs} Ayat</p>
-            <p className="text-sm bg-color-dark px-3 py-1 rounded-full mt-2 inline-block">
+
+          <div className="md:text-right space-y-2">
+            <div className="space-y-1">
+              <p className="text-base md:text-lg">
+                Surah ke-{surahData.number}
+              </p>
+              <p className="text-base md:text-lg">
+                {surahData.numberOfAyahs} Ayat
+              </p>
+            </div>
+            <p className="text-sm bg-color-dark px-4 py-2 md:px-3 md:py-1 rounded-full w-full md:w-auto block md:inline-block">
               {surahData.revelation}
             </p>
           </div>
@@ -57,10 +66,10 @@ const Page = async ({ params }) => {
 
       {/* Surah Description */}
       <div className="bg-white rounded-xl p-6 mb-8 shadow-md">
-        <h2 className="text-2xl font-semibold mb-4 text-emerald-800">
+        <h2 className="text-xl font-semibold mb-4 text-emerald-800">
           Deskripsi Surah
         </h2>
-        <p className="text-gray-700 leading-relaxed text-lg text-justify">
+        <p className="text-gray-700 leading-relaxed sm:text-lg text-md text-justify">
           {surahData.description}
         </p>
       </div>
@@ -75,7 +84,7 @@ const Page = async ({ params }) => {
           >
             <div className="flex justify-between items-start">
               <div
-                className={`${lateef.className} text-4xl text-color-dark leading-loose text-right ml-auto`}
+                className={`${lateef.className} sm:text-4xl text-3xl text-color-dark leading-loose text-right ml-auto`}
                 dir="rtl"
               >
                 {ayah.arab}
@@ -85,7 +94,9 @@ const Page = async ({ params }) => {
               </span>
             </div>
 
-            <div className="mt-2 text-gray-600 text-lg">{ayah.translation}</div>
+            <div className="mt-2 text-gray-600 sm:text-lg text-sm">
+              {ayah.translation}
+            </div>
           </Link>
         ))}
       </div>
