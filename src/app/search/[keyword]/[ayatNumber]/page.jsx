@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useParams, notFound } from "next/navigation";
-import { getSurahList } from "@/app/libs/api-libs";
+import { getSurahList, getSuratName } from "@/app/libs/api-libs";
 import { Lateef } from "next/font/google";
+import Loading from "@/app/loading";
 const lateef = Lateef({
   weight: "400",
   subsets: ["arabic"],
@@ -36,7 +37,7 @@ const Page = () => {
   }, [keyword, ayatNumber]); // Panggil ulang jika parameter berubah
 
   if (loading) {
-    return <p className="text-center text-lg">Loading...</p>;
+    return <Loading />;
   }
 
   // if (!surahData.name) {
@@ -63,7 +64,9 @@ const Page = () => {
 
         {/* Informasi Surat dan Ayat */}
         <div className="text-center mb-4 p-4 bg-white/10 rounded-xl shadow-lg inline-block">
-          <p className="text-2xl font-bold text-white">QS. An-Nisa</p>
+          <p className="text-2xl font-bold text-white">
+            {getSuratName(keyword)}
+          </p>
           <div className="w-16 h-1 bg-white rounded-full my-2 mx-auto"></div>
           <p className="text-lg font-medium text-white">
             Ayat ke-{number.inSurah}
