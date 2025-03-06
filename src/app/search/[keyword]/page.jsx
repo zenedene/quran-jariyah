@@ -24,81 +24,179 @@ const Page = async ({ params }) => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 min-h-screen">
-      <div className="bg-color-accent text-white rounded-xl px-4 py-5 md:p-6 mb-6 md:mb-8 shadow-lg mx-2 md:mx-0">
-        <div className="flex flex-col justify-between md:flex-row md:items-start">
-          <div className="flex-1 mb-4 md:mb-0">
-            <h1 className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-amili leading-tight">
-              {surahData.name}
-            </h1>
-            <p className="text-base md:text-xl opacity-90 leading-relaxed">
-              {surahData.translation}
-            </p>
-          </div>
+    <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white z-0 pointer-events-none"></div>
 
-          <div className="md:text-right space-y-2">
-            <div className="space-y-1">
-              <p className="text-base md:text-lg">
-                Surah ke-{surahData.number}
-              </p>
-              <p className="text-base md:text-lg">
-                {surahData.numberOfAyahs} Ayat
-              </p>
+      {/* Header Section */}
+      <div className="relative z-10">
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg border-l-4 border-emerald-500 mb-8">
+          <div className="p-6">
+            <div className="flex flex-col justify-between md:flex-row md:items-start">
+              <div className="flex-1 mb-4 md:mb-0">
+                <h1 className="text-3xl md:text-4xl font-bold mb-2 font-amili leading-tight text-emerald-800">
+                  {surahData.name}
+                </h1>
+                <p className="text-base md:text-lg text-emerald-700 leading-relaxed">
+                  {surahData.translation}
+                </p>
+              </div>
+
+              <div className="md:text-right">
+                <div className="flex items-center justify-start md:justify-end mb-2">
+                  <span className="flex items-center justify-center bg-emerald-100 text-emerald-700 w-12 h-12 rounded-full text-lg font-bold mr-3 md:ml-3 md:mr-0">
+                    {surahData.number}
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-base text-gray-600 flex items-center">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {surahData.numberOfAyahs} Ayat
+                  </p>
+                  <p className="text-sm bg-emerald-100 text-emerald-700 px-4 py-2 md:px-3 md:py-1 rounded-full inline-block">
+                    {surahData.revelation}
+                  </p>
+                </div>
+              </div>
             </div>
-            <p className="text-sm bg-color-dark px-4 py-2 md:px-3 md:py-1 rounded-full w-full md:w-auto block md:inline-block">
-              {surahData.revelation}
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div className="text-center mb-8 py-6 border-b-2 border-emerald-100">
-        <div
-          className={`text-6xl mb-4 text-color-dark leading-relaxed ${lateef.className}`}
-          dir="rtl"
-        >
-          {surahData.bismillah.arab}
-        </div>
-        <p className="text-gray-600 italic text-lg">
-          "{surahData.bismillah.translation}"
-        </p>
-      </div>
+            {/* Divider with dot */}
+            <div className="flex items-center my-5">
+              <div className="flex-grow h-0.5 bg-gray-100"></div>
+              <div className="w-2 h-2 rounded-full bg-emerald-300 mx-2"></div>
+              <div className="flex-grow h-0.5 bg-gray-100"></div>
+            </div>
 
-      {/* Surah Description */}
-      <div className="bg-white rounded-xl p-6 mb-8 shadow-md">
-        <h2 className="text-xl font-semibold mb-4 text-emerald-800">
-          Deskripsi Surah
-        </h2>
-        <p className="text-gray-700 leading-relaxed sm:text-lg text-md text-justify">
-          {surahData.description}
-        </p>
-      </div>
-
-      {/* Ayat List */}
-      <div className="space-y-6">
-        {surahData.ayahs.map((ayah) => (
-          <Link
-            key={ayah.number.inSurah}
-            href={`/search/${surahData.number}/${ayah.number.inSurah}`}
-            className="block bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
-          >
-            <div className="flex justify-between items-start">
+            {/* Bismillah Section */}
+            <div className="text-center my-6">
               <div
-                className={`${lateef.className} sm:text-4xl text-3xl text-color-dark leading-loose text-right ml-auto`}
+                className="text-6xl mb-4 text-emerald-800 leading-relaxed lateef-font"
                 dir="rtl"
               >
-                {ayah.arab}
+                {surahData.bismillah.arab}
               </div>
-              <span className="text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full text-sm">
-                {ayah.number.inSurah}
-              </span>
+              <p className="text-gray-600 italic text-lg">
+                "{surahData.bismillah.translation}"
+              </p>
             </div>
+          </div>
+        </div>
 
-            <div className="mt-2 text-gray-600 sm:text-lg text-sm">
-              {ayah.translation}
-            </div>
+        {/* Surah Description */}
+        <div className="bg-white rounded-xl p-6 mb-8 shadow-md border-l-4 border-emerald-500">
+          <h2 className="text-xl font-semibold mb-4 text-emerald-800">
+            Deskripsi Surah
+          </h2>
+          <p className="text-gray-700 leading-relaxed sm:text-lg text-justify">
+            {surahData.description}
+          </p>
+        </div>
+
+        {/* Ayat List */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          {surahData.ayahs.map((ayah, index) => (
+            <Link
+              key={ayah.number.inSurah}
+              href={`/search/${surahData.number}/${ayah.number.inSurah}`}
+              className="block hover:bg-emerald-50 transition-all duration-200 border-b border-emerald-100 last:border-b-0"
+            >
+              <div className="p-5">
+                <div className="flex justify-between items-start mb-4">
+                  {/* Arabic text */}
+                  <div
+                    className="lateef-font text-4xl text-emerald-800 leading-loose text-right ml-auto"
+                    dir="rtl"
+                  >
+                    {ayah.arab}
+                  </div>
+
+                  {/* Number Badge */}
+                  <span className="flex items-center justify-center bg-emerald-100 text-emerald-700 w-10 h-10 rounded-full text-sm font-bold shrink-0 mx-3">
+                    {ayah.number.inSurah}
+                  </span>
+                </div>
+
+                {/* Divider with dot */}
+                <div className="flex items-center my-3">
+                  <div className="flex-grow h-0.5 bg-gray-100"></div>
+                  <div className="w-2 h-2 rounded-full bg-emerald-300 mx-2"></div>
+                  <div className="flex-grow h-0.5 bg-gray-100"></div>
+                </div>
+
+                {/* Translation */}
+                <div className="mt-3 text-gray-700 text-base">
+                  {ayah.translation}
+                </div>
+
+                {/* Action indicator */}
+                <div className="mt-3 flex justify-end">
+                  <span className="text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors duration-200 flex items-center">
+                    Tafsir ayat
+                    <svg
+                      className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-200"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Navigation buttons */}
+        <div className="mt-8 flex justify-between">
+          <Link
+            href={`/search/${Math.max(1, surahData.number - 1)}`}
+            className="px-4 py-2 bg-white shadow-md rounded-lg text-emerald-700 flex items-center hover:bg-emerald-50 transition-colors duration-200"
+          >
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Surah Sebelumnya
           </Link>
-        ))}
+          <Link
+            href={`/search/${Math.min(114, surahData.number + 1)}`}
+            className="px-4 py-2 bg-white shadow-md rounded-lg text-emerald-700 flex items-center hover:bg-emerald-50 transition-colors duration-200"
+          >
+            Surah Selanjutnya
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </Link>
+        </div>
       </div>
     </div>
   );
