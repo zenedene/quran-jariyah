@@ -75,7 +75,7 @@ const Page = () => {
             </div>
 
             <div
-              className={`sm:text-4xl text-3xl font-bold mb-6 text-center ${lateef.className} leading-relaxed`}
+              className={`text-4xl font-bold mb-6 text-center ${lateef.className} leading-relaxed`}
               dir="rtl"
             >
               {arab}
@@ -88,7 +88,7 @@ const Page = () => {
               <div className="flex-grow h-0.5 bg-gray-100"></div>
             </div>
 
-            <p className="sm:text-xl text-base text-gray-700 text-center font-light max-w-2xl mx-auto">
+            <p className="sm:text-xl text-sm text-gray-700 text-center font-light max-w-2xl mx-auto">
               {translation}
             </p>
           </div>
@@ -206,7 +206,7 @@ const Page = () => {
         {number.inSurah > 1 ? (
           <Link
             href={`/search/${keyword}/${number.inSurah - 1}`}
-            className="flex items-center px-4 py-2 bg-white border border-emerald-200 rounded-lg shadow-sm hover:shadow-md transition-all text-emerald-700 transform hover:-translate-y-1"
+            className="flex items-center text-sm sm:text-md px-4 py-2 bg-white border border-emerald-200 rounded-lg shadow-sm hover:shadow-md transition-all text-emerald-700 transform hover:-translate-y-1"
           >
             <svg
               className="h-4 w-4 mr-1"
@@ -233,7 +233,7 @@ const Page = () => {
         {/* Back to Surah Button */}
         <Link
           href={`/search/${keyword}`}
-          className="px-4 py-2 bg-emerald-500 text-white rounded-lg shadow hover:shadow-md transition-all flex items-center transform hover:-translate-y-1"
+          className="text-sm sm:text-md px-4 py-2 bg-emerald-500 text-white rounded-lg shadow hover:shadow-md transition-all flex items-center transform hover:-translate-y-1"
         >
           <svg className="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
             <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
@@ -245,7 +245,7 @@ const Page = () => {
         {number.inSurah < jumlahAyat([`${keyword}`]) ? (
           <Link
             href={`/search/${keyword}/${number.inSurah + 1}`}
-            className="flex items-center px-4 py-2 bg-white border border-emerald-200 rounded-lg shadow-sm hover:shadow-md transition-all text-emerald-700 transform hover:-translate-y-1"
+            className="text-sm sm:text-md flex items-center px-4 py-2 bg-white border border-emerald-200 rounded-lg shadow-sm hover:shadow-md transition-all text-emerald-700 transform hover:-translate-y-1"
           >
             Ayat Berikutnya
             <svg

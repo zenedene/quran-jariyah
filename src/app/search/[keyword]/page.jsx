@@ -80,12 +80,12 @@ const Page = async ({ params }) => {
             {/* Bismillah Section */}
             <div className="text-center my-6">
               <div
-                className="text-6xl mb-4 text-emerald-800 leading-relaxed lateef-font"
+                className="text-4xl sm:text-6xl mb-4 text-emerald-800 leading-relaxed lateef-font"
                 dir="rtl"
               >
                 {surahData.bismillah.arab}
               </div>
-              <p className="text-gray-600 italic text-lg">
+              <p className="text-gray-600 italic text-sm sm:text-lg">
                 "{surahData.bismillah.translation}"
               </p>
             </div>
@@ -97,7 +97,7 @@ const Page = async ({ params }) => {
           <h2 className="text-xl font-semibold mb-4 text-emerald-800">
             Deskripsi Surah
           </h2>
-          <p className="text-gray-700 leading-relaxed sm:text-lg text-justify">
+          <p className="text-gray-700 leading-relaxed sm:text-lg text-sm text-justify">
             {surahData.description}
           </p>
         </div>
@@ -121,9 +121,21 @@ const Page = async ({ params }) => {
                   </div>
 
                   {/* Number Badge */}
-                  <span className="flex items-center justify-center bg-emerald-100 text-emerald-700 w-10 h-10 rounded-full text-sm font-bold shrink-0 mx-3">
-                    {ayah.number.inSurah}
-                  </span>
+                  <div className="relative shrink-0 mx-3">
+                    {/* Main badge with subtle border */}
+                    <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white border border-emerald-200 shadow-sm">
+                      {/* Simple decorative ring */}
+                      <div className="absolute inset-0.5 rounded-full border border-emerald-100"></div>
+
+                      {/* Number display with clean typography */}
+                      <span className="text-sm font-medium text-emerald-700">
+                        {ayah.number.inSurah}
+                      </span>
+                    </div>
+
+                    {/* Subtle bottom shadow */}
+                    <div className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-emerald-900/5 blur-sm rounded-full"></div>
+                  </div>
                 </div>
 
                 {/* Divider with dot */}
@@ -134,7 +146,7 @@ const Page = async ({ params }) => {
                 </div>
 
                 {/* Translation */}
-                <div className="mt-3 text-gray-700 text-base">
+                <div className="mt-3 text-gray-700 text-sm sm:text-base">
                   {ayah.translation}
                 </div>
 
