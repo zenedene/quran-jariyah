@@ -1,5 +1,4 @@
 import Link from "next/link";
-import InputSearch from "./InputSearch";
 
 const Navbar = () => {
   return (
@@ -13,9 +12,6 @@ const Navbar = () => {
           >
             Jariyah
           </Link>
-
-          {/* Search Input */}
-          <InputSearch />
         </div>
       </div>
     </header>

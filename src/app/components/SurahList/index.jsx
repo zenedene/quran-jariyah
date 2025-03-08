@@ -1,6 +1,23 @@
+"use client";
 import Link from "next/link";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const SurahList = ({ api }) => {
+  const searcRef = useRef();
+  const router = useRouter();
+
+  const handleSearch = (event) => {
+    const keyword = searcRef.current.value;
+
+    if (!keyword) return;
+
+    if (event.key === "Enter" || event.type === "click") {
+      event.preventDefault();
+
+      router.push(`/search/${keyword}`);
+    }
+  };
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 sm:py-6">
       {/* Background pattern */}
@@ -21,7 +38,11 @@ const SurahList = ({ api }) => {
       <div className="relative z-10 max-w-md mx-auto mb-10">
         <div className="relative">
           <input
-            type="text"
+            type="number"
+            ref={searcRef}
+            min={1}
+            max={114}
+            onKeyDown={handleSearch}
             placeholder="Cari surah..."
             className="w-full px-4 py-3 pl-12 rounded-full border border-emerald-200 focus:ring-2 focus:ring-emerald-300 focus:outline-none bg-white shadow-sm"
           />

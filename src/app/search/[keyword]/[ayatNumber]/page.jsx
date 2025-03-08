@@ -3,10 +3,15 @@
 import { useEffect, useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import { getSurahList, getSuratName, jumlahAyat } from "@/app/libs/api-libs";
-import { Lateef } from "next/font/google";
+import { Lateef, Amiri } from "next/font/google";
 import Loading from "@/app/loading";
 import Link from "next/link";
 const lateef = Lateef({
+  weight: "400",
+  subsets: ["arabic", "latin"],
+  display: "swap",
+});
+const amiri = Amiri({
   weight: "400",
   subsets: ["arabic"],
   display: "swap",
@@ -75,7 +80,7 @@ const Page = () => {
             </div>
 
             <div
-              className={`text-4xl font-bold mb-6 text-center ${lateef.className} leading-relaxed`}
+              className={`text-4xl font-bold mb-6 text-center ${amiri.className} leading-relaxed`}
               dir="rtl"
             >
               {arab}

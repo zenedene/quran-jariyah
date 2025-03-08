@@ -80,7 +80,7 @@ const Page = async ({ params }) => {
             {/* Bismillah Section */}
             <div className="text-center my-6">
               <div
-                className="text-4xl sm:text-6xl mb-4 text-emerald-800 leading-relaxed lateef-font"
+                className={`${amiri.className} text-4xl sm:text-6xl mb-4 text-emerald-800 leading-relaxed`}
                 dir="rtl"
               >
                 {surahData.bismillah.arab}
@@ -114,7 +114,7 @@ const Page = async ({ params }) => {
                 <div className="flex justify-between items-start mb-4">
                   {/* Arabic text */}
                   <div
-                    className="lateef-font text-4xl text-emerald-800 leading-loose text-right ml-auto"
+                    className={`${amiri.className} text-4xl text-emerald-800 leading-loose text-right ml-auto`}
                     dir="rtl"
                   >
                     {ayah.arab}
