@@ -55,7 +55,7 @@ const Page = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 sm:py-6">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 from-emerald-50/50 to-white z-0 pointer-events-none"></div>
 
       {/* Header Section - Similar to surah list header */}
       <div className="relative z-10 text-center mb-12">
@@ -80,8 +80,12 @@ const Page = () => {
             </div>
 
             <div
-              className={`text-2xl sm:text-4xl font-bold mb-6 text-center ${amiri.className} leading-relaxed`}
+              className={`text-2xl sm:text-4xl font-bold my-6 text-center ${amiri.className} leading-relaxed`}
               dir="rtl"
+              style={{
+                lineHeight: "4.5rem", // Fallback untuk browser lama
+                wordSpacing: "0.1em",
+              }}
             >
               {arab}
             </div>

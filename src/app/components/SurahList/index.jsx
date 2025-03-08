@@ -21,7 +21,7 @@ const SurahList = ({ api }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 sm:py-6">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 from-emerald-50/50 to-white z-0 pointer-events-none"></div>
 
       {/* Header Section */}
       <div className="relative z-10 text-center mb-12">

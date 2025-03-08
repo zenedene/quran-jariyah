@@ -26,7 +26,7 @@ const Page = async ({ params }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 from-emerald-50/50 to-white z-0 pointer-events-none"></div>
 
       {/* Header Section */}
       <div className="relative z-10">
@@ -112,16 +112,8 @@ const Page = async ({ params }) => {
             >
               <div className="p-5">
                 <div className="flex justify-between items-start mb-4">
-                  {/* Arabic text */}
-                  <div
-                    className={`${amiri.className} text-2xl sm:text-4xl text-emerald-800 leading-loose text-right ml-auto`}
-                    dir="rtl"
-                  >
-                    {ayah.arab}
-                  </div>
-
-                  {/* Number Badge */}
-                  <div className="relative shrink-0 mx-3">
+                  {/* Number Badge - moved to left side */}
+                  <div className="relative shrink-0 mr-3">
                     {/* Main badge with subtle border */}
                     <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white border border-emerald-200 shadow-sm">
                       {/* Simple decorative ring */}
@@ -135,6 +127,18 @@ const Page = async ({ params }) => {
 
                     {/* Subtle bottom shadow */}
                     <div className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-emerald-900/5 blur-sm rounded-full"></div>
+                  </div>
+
+                  {/* Arabic text */}
+                  <div
+                    className={`${amiri.className} text-2xl sm:text-4xl text-emerald-800 leading-loose text-right w-full my-4`}
+                    dir="rtl"
+                    style={{
+                      lineHeight: "4.5rem", // Fallback untuk browser lama
+                      wordSpacing: "0.1em",
+                    }}
+                  >
+                    {ayah.arab}
                   </div>
                 </div>
 
@@ -167,7 +171,7 @@ const Page = async ({ params }) => {
                     </svg>
                   </span>
                 </div>
-              </div>
+              </div>{" "}
             </Link>
           ))}
         </div>
