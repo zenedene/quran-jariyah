@@ -114,7 +114,7 @@ const Page = async ({ params }) => {
                 <div className="flex justify-between items-start mb-4">
                   {/* Arabic text */}
                   <div
-                    className={`${amiri.className} text-4xl text-emerald-800 leading-loose text-right ml-auto`}
+                    className={`${amiri.className} text-2xl sm:text-4xl text-emerald-800 leading-loose text-right ml-auto`}
                     dir="rtl"
                   >
                     {ayah.arab}

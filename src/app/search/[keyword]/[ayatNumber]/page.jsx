@@ -80,7 +80,7 @@ const Page = () => {
             </div>
 
             <div
-              className={`text-4xl font-bold mb-6 text-center ${amiri.className} leading-relaxed`}
+              className={`text-2xl sm:text-4xl font-bold mb-6 text-center ${amiri.className} leading-relaxed`}
               dir="rtl"
             >
               {arab}
